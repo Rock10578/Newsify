@@ -7,7 +7,7 @@ export class NewsItem extends Component {
       <div>
         <div className="card my-2">
             <div className="bg-image hover-overlay ripple" >
-                <img src={imageUrl}  alt="Content" className="img-fluid"/>
+                <img src={imageUrl?imageUrl:"https://cdn.pixabay.com/photo/2022/11/01/11/30/breaking-news-7562021__340.jpg"}  alt="Content" className="img-fluid"/>
                 <a href="/">
                 <div className="mask" style={{"backgroundColor": "rgba(251, 251, 251, 0.15)"}}></div>
                 </a>
