@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import NewsItem from './NewsItem'
 import Spinner from './Spinner';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 export class News extends Component {
   static defaultProps = {
@@ -10,11 +10,11 @@ export class News extends Component {
     category: 'general',
     language: 'en'
   }
-  static PropTypes = {
-    country: PropTypes.string,
-    pageSize: PropTypes,
-    category: PropTypes.string,
-    language: PropTypes.string
+  static propTypes = {
+    country: propTypes.string,
+    pageSize: propTypes,
+    category: propTypes.string,
+    language: propTypes.string
   }
    constructor(){
       super();
@@ -26,7 +26,7 @@ export class News extends Component {
     }
 
     async componentDidMount(){
-      let url = `https://newsapi.org/v2/everything?country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&domains=wsj.com&apiKey=1834ad42eb01433d83facfb182fd15c9&page=1&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&domains=wsj.com&apiKey=1834ad42eb01433d83facfb182fd15c9&page=1&pageSize=${this.props.pageSize}`;
       this.setState({loading: true});
       let data = await fetch(url);
       let parsedData = await data.json()
@@ -35,7 +35,7 @@ export class News extends Component {
     }
 
     handlePrev = async () => { 
-      let url = `https://newsapi.org/v2/everything?country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&domains=wsj.com&apiKey=1834ad42eb01433d83facfb182fd15c9&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
+      let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&domains=wsj.com&apiKey=1834ad42eb01433d83facfb182fd15c9&page=${this.state.page - 1}&pageSize=${this.props.pageSize}`;
       this.setState({loading: true});
       let data = await fetch(url);
       let parsedData = await data.json()
@@ -48,7 +48,7 @@ export class News extends Component {
 
     handleNext = async () => {
       if (!(this.state.page + 1 > Math.ceil(this.state.totalResults/this.props.pageSize))){
-        let url = `https://newsapi.org/v2/everything?country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&domains=wsj.com&apiKey=1834ad42eb01433d83facfb182fd15c9&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&language=${this.props.language}&domains=wsj.com&apiKey=1834ad42eb01433d83facfb182fd15c9&page=${this.state.page + 1}&pageSize=${this.props.pageSize}`;
         this.setState({loading: true});
         let data = await fetch(url);
         let parsedData = await data.json()
@@ -67,8 +67,8 @@ export class News extends Component {
         {this.state.loading && <Spinner/>}
         <div className='row'>
             {this.state.loading || this.state.articles.map((e)=>{
-                return <div className='col-md-4' key={e.url}>
-                        <NewsItem title={e.title?e.title.slice(0, 45):""} description={e.description?e.description.slice(0, 78):""} imageUrl={e.urlToImage} newsUrl={e.url}/>
+                return <div className='col-lg-4 col-md-6' key={e.url}>
+                        <NewsItem title={e.title?e.title.slice(0, 45):""} description={e.description?e.description.slice(0, 78):""} imageUrl={e.urlToImage} newsUrl={e.url} author={e.author} date={e.publishedAt} source={e.source.name}/>
                     </div>
             })}
         </div>
