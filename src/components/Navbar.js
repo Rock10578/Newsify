@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export class Navbar extends Component {
-  render() {
+function Navbar() {
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/">Newsify</Link>
                 <button
@@ -23,42 +22,42 @@ export class Navbar extends Component {
                   <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                       <li className="nav-item"><Link className="nav-link" aria-current="page" to="/">Home</Link></li>
                       <li className="nav-item">
-                          <ul class="navbar-nav">
-                            <li class="dropdown">
-                              <Link class="nav-link" role="button" data-mdb-toggle="dropdown" aria-expanded="false" to="/">Category</Link>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><Link class="dropdown-item" to="/">Business</Link></li>
-                                <li><Link class="dropdown-item" to="/">Entertainment</Link></li>
-                                <li><Link class="dropdown-item" to="/">General</Link></li>
-                                <li><Link class="dropdown-item" to="/">Health</Link></li>
-                                <li><Link class="dropdown-item" to="/">Science</Link></li>
-                                <li><Link class="dropdown-item" to="/">Sports</Link></li>
-                                <li><Link class="dropdown-item" to="/">Technology</Link></li>
+                          <ul className="navbar-nav">
+                            <li className="dropdown">
+                              <Link className="nav-link" role="button" data-mdb-toggle="dropdown" aria-expanded="false" to="/">Category</Link>
+                              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><Link className="dropdown-item" to="/">Business</Link></li>
+                                <li><Link className="dropdown-item" to="/">Entertainment</Link></li>
+                                <li><Link className="dropdown-item" to="/">General</Link></li>
+                                <li><Link className="dropdown-item" to="/">Health</Link></li>
+                                <li><Link className="dropdown-item" to="/">Science</Link></li>
+                                <li><Link className="dropdown-item" to="/">Sports</Link></li>
+                                <li><Link className="dropdown-item" to="/">Technology</Link></li>
                               </ul>
                             </li>
                           </ul>
                       </li>
                       <li className="nav-item">
-                          <ul class="navbar-nav">
-                            <li class="dropdown">
-                              <Link class="nav-link" role="button" data-mdb-toggle="dropdown" aria-expanded="false" to="/">Language</Link>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><Link class="dropdown-item" to="/">English</Link></li>
+                          <ul className="navbar-nav">
+                            <li className="dropdown">
+                              <Link className="nav-link" role="button" data-mdb-toggle="dropdown" aria-expanded="false" to="/">Language</Link>
+                              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><Link className="dropdown-item" to="/">English</Link></li>
                                 {/* en */}
                               </ul>
                             </li>
                           </ul>
                       </li>
                       <li className="nav-item">
-                          <ul class="navbar-nav">
-                            <li class="dropdown">
-                              <Link class="nav-link" role="button" data-mdb-toggle="dropdown" aria-expanded="false" to="/">Country</Link>
-                              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><Link class="dropdown-item" to="/">Canada</Link></li>
-                                <li><Link class="dropdown-item" to="/">India</Link></li>
-                                <li><Link class="dropdown-item" to="/">Japan</Link></li>
-                                <li><Link class="dropdown-item" to="/">Singapore</Link></li>
-                                <li><Link class="dropdown-item" to="/">United States of America</Link></li>
+                          <ul className="navbar-nav">
+                            <li className="dropdown">
+                              <Link className="nav-link" role="button" data-mdb-toggle="dropdown" aria-expanded="false" to="/">Country</Link>
+                              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                <li><Link className="dropdown-item" to="/">Canada</Link></li>
+                                <li><Link className="dropdown-item" to="/">India</Link></li>
+                                <li><Link className="dropdown-item" to="/">Japan</Link></li>
+                                <li><Link className="dropdown-item" to="/">Singapore</Link></li>
+                                <li><Link className="dropdown-item" to="/">United States of America</Link></li>
                                 {/* in us ca jp sg*/}
                               </ul>
                             </li>
@@ -76,7 +75,6 @@ export class Navbar extends Component {
         </nav>
       </div>
     )
-  }
 }
 
 export default Navbar
